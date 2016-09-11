@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+    <script src="scripts/lib/systemjs/system.js"></script>
+    <script src="scripts/lib/angular2/angular2.js"></script>
+    <script src="scripts/lib/es6/es6-shim.min.js"></script>
+    <script src="scripts/lib/traceur/traceur.js"></script>
+    <script>
+        System.config({
+            packages: {
+              js: {
+                format: 'register',
+                defaultExtension: 'js'
+              }
+            }
+        });
+        // System.import('js/boot')
+            // .then(null, console.error.bind(console));
+    </script>
+</head>
+<body>
+    <!-- <script>
+        var xhr = new XMLHttpRequest();
+
+        xhr.open('GET', './getList');
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                console.log(JSON.parse(xhr.responseText));
+            }
+        };
+
+        xhr.send(null);
+    </script> -->
+    <ez-app></ez-app>
+    <script>
+        import {Component,View,bootstrap} from "scripts/lib/angular2/angular2";
+        @Component({selector:"ez-app"})
+        @View({template:"<h1>Hello,Angular2</h1>"})
+        class EzApp{}
+        bootstrap(EzApp);
+    </script>
+</body>
+</html>
