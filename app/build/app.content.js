@@ -14,6 +14,7 @@ require('rxjs/add/operator/map');
 var Content = (function () {
     function Content(http) {
         var _this = this;
+        this.items = [];
         http.get('../simulated/article-list.json')
             .map(function (resp) { return resp.json(); })
             .subscribe(function (items) { return _this.items = items; });

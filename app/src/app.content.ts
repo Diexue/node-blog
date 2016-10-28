@@ -8,6 +8,7 @@ import 'rxjs/add/operator/map';
 })
 @Injectable()
 export class Content {
+    items = [];
     constructor(http: Http) {
         http.get('../simulated/article-list.json')
             .map(resp => resp.json())
