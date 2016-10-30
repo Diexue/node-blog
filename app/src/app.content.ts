@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
     template: '<div class="nb-content" *ngFor="let item of items"><h3>{{item.title}}</h3><p>{{item.desc}}</p></div>'
 })
 @Injectable()
-export class Content {
+export class ContentComponent {
     items = [];
     constructor(http: Http) {
         http.get('../simulated/article-list.json')

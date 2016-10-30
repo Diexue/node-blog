@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@types/core-js": "^0.9.34",
+    "browser-sync": "^2.17.5",
     "gulp": "^3.9.1",
     "gulp-typescript": "^3.1.0",
     "gulp-typings": "^2.0.4",
