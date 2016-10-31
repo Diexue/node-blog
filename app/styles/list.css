@@ -1,0 +1,41 @@
+.d-content {
+    max-width: 600px;
+    margin: 20px auto 0 auto;
+}
+.d-list-item {
+    margin: 15px 0 0 0;
+}
+.d-list-item h3 {
+    font-size: 16px;
+}
+.d-list-item h3:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+.d-list-item p {
+    margin: 5px 0 0 0;
+    font-size: 14px;
+    text-align: justify;
+}
+.d-list-item p:hover {
+    background: #eee;
+    cursor: pointer;
+}
+.d-list-tags {
+    width: 100%;
+    padding: 5px 0 0 0;
+    color: #007790;
+    font-size: 12px;
+    text-align: right;
+}
+.d-list-tags span {
+    display: inline-block;
+    padding: 0 0 3px 0;
+    font-weight: bold;
+}
+.d-list-tags span:nth-of-type(n+2) {
+    margin: 0 0 0 20px;
+}
+.d-list-tags span:hover {
+    cursor: pointer;
+}

@@ -39,7 +39,7 @@ gulp.task('default', ['typescript'], function () {
     });
 
     gulp.watch('index.html', bs.reload);
-    gulp.watch('./styles/**/*.css', bs.reload);
+    gulp.watch('./styles/*.css', bs.reload);
     gulp.watch('./src/**/*.js', bs.reload);
     gulp.watch('./src/**/*.ts', ['typescript', bs.reload]);
 });

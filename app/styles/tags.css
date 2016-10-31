@@ -1,0 +1,23 @@
+.d-tags {
+    width: 100%;
+}
+.d-tags-item {
+    display: inline-block;
+    margin: 60px 40px 0 0;
+    cursor: pointer;
+}
+.d-tags-name {
+    display: inline-block;
+    vertical-align: bottom;
+    font-size: 16px;
+    color: #007790;
+}
+.d-tags-name:hover {
+    text-decoration: underline;
+}
+.d-tags-count {
+    display: inline-block;
+    vertical-align: bottom;
+    font-size: 12px;
+    color: #666;
+}
