@@ -52,3 +52,24 @@ a, a:hover, a:active, a:focus {
 .d-markdown em {
     color: #999;
 }
+
+.d-markdown a,
+.d-markdown a:hover,
+.d-markdown a:active,
+.d-markdown a:focus {
+    color: #007790;
+}
+.d-markdown a:hover {
+    text-decoration: underline;
+}
+
+.d-markdown ul {
+    list-style-type: decimal;
+    margin: 20px 0 0 36px;
+    font-size: 14px;
+}
+.d-markdown ol {
+    list-style-type: decimal;
+    margin: 20px 0 0 36px;
+    font-size: 14px;
+}
