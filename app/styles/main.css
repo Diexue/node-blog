@@ -13,4 +13,42 @@ a, a:hover, a:active, a:focus {
     text-decoration: none;
 }
 
+.d-markdown h3 {
+    margin: 20px 0 0 0;
+}
 
+.d-markdown h5 {
+    margin: 20px 0 0 0;
+}
+
+.d-markdown p {
+    margin: 20px 0 0 0;
+    line-height: 24px;
+    color: #333;
+    font-size: 14px;
+    text-align: justify;
+}
+
+.d-markdown blockquote, .d-markdown blockquote p {
+    margin-left: 10px;
+    color: #666;
+}
+.d-markdown blockquote p:before {
+    content: '“';
+    font-family: 'SimSun';
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 36px;
+    color: #333;
+}
+.d-markdown blockquote p:after {
+    content: '”';
+    font-family: 'SimSun';
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 36px;
+    color: #333;
+}
+.d-markdown em {
+    color: #999;
+}

@@ -5,16 +5,20 @@ import {Component} from '@angular/core';
   template: `<div class="d-header">
                 <div class="d-logo" routerLink="/">DUER</div>
                 <div class="d-nav">
-                    <a [routerLink]="['/files']"    routerLinkActive="d-nav-active">归档</a>
-                    <a [routerLink]="['/tags']"     routerLinkActive="d-nav-active">标签</a>
-                    <a [routerLink]="['/reading']"  routerLinkActive="d-nav-active">读书</a>
-                    <a [routerLink]="['/projects']" routerLinkActive="d-nav-active">作品</a>
-                    <a [routerLink]="['/about']"    routerLinkActive="d-nav-active">我</a>
+                    <a *ngFor="let nav of navigators" [routerLink]="[nav.router]" routerLinkActive="d-nav-active">{{nav.text}}</a>
                 </div>
              </div>
              <div class="d-content">
                 <router-outlet></router-outlet>
              </div>`
 })
-export class AppComponent {}
+export class AppComponent {
+    navigators = [
+        {router: '/organize', text: '归档'},
+        {router: '/tags', text: '标签'},
+        {router: '/reading', text: '读书'},
+        {router: '/projects', text: '作品'},
+        {router: '/about', text: '我'}
+    ];
+};
 

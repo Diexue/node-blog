@@ -12,6 +12,7 @@ import {Http} from '@angular/http';
 })
 @Injectable()
 export class TagsComponent {
+    tags = [];
     constructor(http: Http) {
         http.get('../simulated/tags.json')
             .map(resp => resp.json())

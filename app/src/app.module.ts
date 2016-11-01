@@ -2,6 +2,7 @@ import {NgModule}      from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpModule} from '@angular/http';
 import {RouterModule} from '@angular/router';
+import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 
 import {AppComponent}   from './app.components';
 
@@ -12,43 +13,15 @@ import {ReadingComponent} from './router.reading';
 import {AboutComponent} from './router.about';
 import {ArticleComponent} from './router.article';
 import {ProjectsComponent} from './router.projects';
+import {TagComponent} from './router.tag';
 
-// import {RouterConfig} from './app.routerConfig';
+import {Router} from './app.routerConfig';
 
 @NgModule({
     imports: [
         BrowserModule,
         HttpModule,
-        RouterModule.forRoot([
-            {
-                path: '',
-                component: ListComponent
-            },
-            {
-                path: 'files',
-                component: OrganizeComponent
-            },
-            {
-                path: 'tags',
-                component: TagsComponent
-            },
-            {
-                path: 'reading',
-                component: ReadingComponent
-            },
-            {
-                path: 'projects',
-                component: ProjectsComponent
-            },
-            {
-                path: 'about',
-                component: AboutComponent
-            },
-            {
-                path: 'article/:id',
-                component: ArticleComponent
-            }
-        ])
+        RouterModule.forRoot(Router)
     ],
     declarations: [
         AppComponent,
@@ -58,10 +31,11 @@ import {ProjectsComponent} from './router.projects';
         ReadingComponent,
         AboutComponent,
         ArticleComponent,
-        ProjectsComponent
+        ProjectsComponent,
+        TagComponent
     ],
+    providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
     bootstrap: [AppComponent]
 })
-
 
 export class AppModule {}
