@@ -24,5 +24,8 @@ article.addBlog = function (blogRow, callback) {
     });
 };
 
+article.getBlogList(function (resp) {
+    console.log(resp);
+});
 
 module.exports = article;
