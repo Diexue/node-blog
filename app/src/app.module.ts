@@ -3,6 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {HttpModule} from '@angular/http';
 import {RouterModule} from '@angular/router';
 import {LocationStrategy, HashLocationStrategy} from '@angular/common';
+import 'rxjs/add/operator/map';
 
 import {AppComponent}   from './app.components';
 
@@ -16,6 +17,7 @@ import {ProjectsComponent} from './router.projects';
 import {TagComponent} from './router.tag';
 
 import {Router} from './app.routerConfig';
+import {toYearPipe} from './blog.pipe';
 
 @NgModule({
     imports: [
@@ -25,6 +27,7 @@ import {Router} from './app.routerConfig';
     ],
     declarations: [
         AppComponent,
+
         ListComponent,
         OrganizeComponent,
         TagsComponent,
@@ -32,7 +35,9 @@ import {Router} from './app.routerConfig';
         AboutComponent,
         ArticleComponent,
         ProjectsComponent,
-        TagComponent
+        TagComponent,
+
+        toYearPipe
     ],
     providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
     bootstrap: [AppComponent]

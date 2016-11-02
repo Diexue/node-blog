@@ -11,6 +11,6 @@ export class ArticleComponent {
     id: any;
     constructor(http: Http, route: ActivatedRoute) {
         route.params.subscribe(params => this.id = params['id']);
-        http.get('./simulated/article/' + this.id + '.html').subscribe(resp => this.article = resp._body);
+        http.get('./simulated/article/' + this.id + '.html').subscribe(resp => this.article = resp['_body']);
     };
 };

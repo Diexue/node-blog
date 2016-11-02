@@ -8,7 +8,7 @@
 .d-list-item h3 {
     font-size: 16px;
 }
-.d-list-item h3:hover {
+.d-list-item h3 span:hover {
     cursor: pointer;
     text-decoration: underline;
 }
@@ -28,15 +28,19 @@
     font-size: 12px;
     text-align: right;
 }
-.d-list-tags span {
+.d-list-time {
     display: inline-block;
+    float: left;
+    color: #999;
+    font-weight: normal;
+}
+.d-list-tag {
+    display: inline-block;
+    margin: 0 0 0 20px;
     padding: 0 0 3px 0;
     font-weight: bold;
 }
-.d-list-tags span:nth-of-type(n+2) {
-    margin: 0 0 0 20px;
-}
-.d-list-tags span:hover {
+.d-list-tag:hover {
     text-decoration: underline;
     cursor: pointer;
 }

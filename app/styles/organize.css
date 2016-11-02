@@ -1,0 +1,30 @@
+.d-organize {
+
+}
+.d-organize-year {
+    display: inline-block;
+    padding: 5px 20px;
+    color: #fff;
+    background: #333;
+}
+.d-organize ul {
+    margin: 10px 0;
+    /*border-left: 2px solid #333;*/
+}
+.d-organize li {
+    padding: 10px 10px 10px 20px;
+}
+
+.d-organize-title {
+    display: inline-block;
+    font-size: 14px;
+    color: #007790;
+}
+.d-organize-title:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+.d-organize-date {
+    display: inline-block;
+    font-size: 12px;
+}
