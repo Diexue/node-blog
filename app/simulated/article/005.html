@@ -1,0 +1,19 @@
+<h3 id="-">二维傅里叶变换是怎么进行的？</h3>
+<p>1，2D Fourier Transform (FT)</p>
+<p><img src="https://zhihu.com/equation?tex=F%28u%2Cv%29+%3D%5Cint_%7B-%5Cinfty%7D%5E%7B%2B%5Cinfty%7D%5Cint_%7B-%5Cinfty%7D%5E%7B%2B%5Cinfty%7Df%28x%2Cy%29e%5E%7B-j2%5Cpi%28ux%2Bvy%29%7Ddxdy" alt=""></p>
+<p>上式为连续情形下的傅立叶变换，具体的积分区间取决于函数<img src="https://zhihu.com/equation?tex=f%28x%2Cy%29" alt="">的定义域。<img src="https://zhihu.com/equation?tex=x%2Cy" alt="">的积分顺序可交换，因此，对<img src="https://zhihu.com/equation?tex=f%28x%2Cy%29" alt="">做2D FT实际上相当于对两个方向分别作1D FT。此外，FT的一大特点就是它是线性变换，即<img src="https://zhihu.com/equation?tex=f1%2Cf2" alt="">信号,线性组合的FT等于它们各自FT的线性组合。</p>
+<p>2，2D Discrete Fourier Transform (DTF)</p>
+<p>频域分析是信号处理中的经典方法，但是计算机是离散的，处理的信号也不可能是无限长的，因此信号分析中用到的是离散傅立叶变换DFT，2D正变换公式如下</p>
+<p><img src="https://zhihu.com/equation?tex=F%28k%2Cl%29+%26%3D+%5Csum_%7Bm%3D0%7D%5E%7BM-1%7D%5Csum_%7Bn%3D0%7D%5E%7BN-1%7Df%28m%2Cn%29e%5E%7B-j2%5Cpi%28km%2FM%2Bln%2FN%29%7D+%5C%5C%0A%26%3D+%5Csum_%7Bm%3D0%7D%5E%7BM-1%7De%5E%7B-j2%5Cpi%5Cfrac%7Bkm%7D%7BM%7D%7D%5Csum_%7Bn%3D0%7D%5E%7BN-1%7Df%28m%2Cn%29e%5E%7B-j2%5Cpi%5Cfrac%7Bln%7D%7BN%7D%7D" alt=""></p>
+<p>同FT，2D DFT同样分两个方向独立进行，且是线性的。有一点要注意，在进行DFT时，实际上默认信号时周期的，然而实际上并非如此。</p>
+<p>此外，快速傅立叶变换算法FFT的提出极大促进了信号处理等领域的发展，这也是它能成为20世纪十大算法之一的原因。</p>
+<p><strong>3，题主所看的slide中的图是&quot;错误&quot;的，正确的图应该如下（slide中的图片应该是MATLAB画的）</strong></p>
+<p><img src="https://pic3.zhimg.com/4c4e0e16b759aa9760185d49b4008f7e_b.jpg" alt=""></p>
+<p>错误1，信号<img src="https://zhihu.com/equation?tex=f1" alt="">和<img src="https://zhihu.com/equation?tex=f2" alt="">的DFT只存在方向上的区别，幅度值是一 样的。上图于slides中的图不同是因为作者在画图时用了fftshift命令，至于原因，错误2中详述。此外，这两个信号实际是1D阶越信号的二维延拓，对应1D如下</p>
+<p><img src="https://pic3.zhimg.com/7c37bc6faec57ae29658d915f5cb9652_b.jpg" alt=""></p>
+<p>错误2，首先要明确的就是MATLAB中矩阵与作图时坐标原点问题。</p>
+<p>MATLAB中，矩阵的坐标原点是左上角，因此，用fft函数做傅立叶变换，所得到的变换结果，左上角是原点，当我们在画图的时候，习惯了原点在中心，因此slides中的图是用了fftshift后得到的，即将原点一到了我们习惯的位置（在图中坐标(26,26)是为原点）。之所以可以这么作，是因为我们已经假设信号的周期的了，因此，若将<img src="https://zhihu.com/equation?tex=F1%2cF2%2CF3" alt="">周期化后，即可得到slide中的效果。</p>
+<p>回到信号<img src="https://zhihu.com/equation?tex=f3" alt="">，从函数角度看，实际上是要将它按顶边旋转180度来看的，即它的间断处是第一象限的角平分线。因此到了频域在幅值上会有相应的直线，比如下图就是，但是没有角平分线明显</p>
+<p><img src="https://pic1.zhimg.com/561387fa987cb94e18890e0d58caad64_b.jpg" alt=""></p>
+<p>4，对应关系
+对于DFT，时域，频域是对应的，这种对应是指，时域有多少点，频域即有多少点。或者说，在进行DFT是，时域和频域的离散化网格大小是一致的，分辨率都是<img src="https://zhihu.com/equation?tex=%5Cfrac%7B1%7D%7BN%7D" alt="">，<img src="https://zhihu.com/equation?tex=N" alt="">对应着信号在每个维度上的长度。</p>
