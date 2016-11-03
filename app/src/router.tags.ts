@@ -14,7 +14,7 @@ import {Http} from '@angular/http';
 export class TagsComponent {
     tags = [];
     constructor(http: Http) {
-        http.get('../simulated/tags.json')
+        http.get('app/simulated/tags.json')
             .map(resp => resp.json())
             .subscribe(tags => this.tags = tags);
     }

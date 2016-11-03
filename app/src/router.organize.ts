@@ -16,7 +16,7 @@ import {Http} from '@angular/http';
 export class OrganizeComponent {
     organize = [];
     constructor(http: Http) {
-        http.get('../simulated/organize.json')
+        http.get('app/simulated/organize.json')
             .map(resp => resp.json())
             .subscribe(org => this.organize = org);
     }
