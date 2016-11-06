@@ -5,7 +5,7 @@ import {Http} from '@angular/http';
     selector: 'tags',
     template: `<div class="d-tags">
                    <div class="d-tags-item" *ngFor="let tag of tags">
-                        <span class="d-tags-name">{{tag.name}}</span>
+                        <span class="d-tags-name" [routerLink]="['/tag', tag.id]">{{tag.name}}</span>
                         <span class="d-tags-count">{{'x' + tag.count}}</span>
                    </div>
                </div>`
@@ -14,7 +14,7 @@ import {Http} from '@angular/http';
 export class TagsComponent {
     tags = [];
     constructor(http: Http) {
-        http.get('app/simulated/tags.json')
+        http.get('http://localhost:8000/tags')
             .map(resp => resp.json())
             .subscribe(tags => this.tags = tags);
     }
