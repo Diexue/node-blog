@@ -7,8 +7,8 @@ import {Http} from '@angular/http';
                    <div class="d-organize-year">{{item.year | toYear}} <span>({{item.total}})</span></div>
                    <ul>
                         <li *ngFor="let article of item.list">
-                           <span class="d-organize-title">{{article.title}}</span>
-                           <span class="d-organize-date"> ({{article.date}})</span>
+                           <span class="d-organize-title" [routerLink]="['/article', article.id]">{{article.title}}</span>
+                           <span class="d-organize-date"> ({{article.time}})</span>
                         </li>
                    </ul>
                </div>`
@@ -16,7 +16,7 @@ import {Http} from '@angular/http';
 export class OrganizeComponent {
     organize = [];
     constructor(http: Http) {
-        http.get('app/simulated/organize.json')
+        http.get('http://localhost:8000/organize')
             .map(resp => resp.json())
             .subscribe(org => this.organize = org);
     }

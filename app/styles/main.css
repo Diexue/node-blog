@@ -28,6 +28,9 @@ a, a:hover, a:active, a:focus {
     font-size: 14px;
     text-align: justify;
 }
+.d-markdown img {
+    max-width: 100%;
+}
 
 .d-markdown blockquote, .d-markdown blockquote p {
     margin-left: 10px;

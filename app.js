@@ -5,14 +5,9 @@ var app = express();
 var list = require('./models/list');
 var blog = require('./models/blog');
 var tag = require('./models/tag');
+var organize = require('./models/organize');
 
-// app.use(express.static('./app'));
-
-// app.get('/', function (req, res) {
-//     'use strict';
-//     res.sendFile(path.join(__dirname, 'index.html'));
-// });
-
+// 配置跨域访问
 app.all('*', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -22,6 +17,7 @@ app.all('*', function(req, res, next) {
     next();
 });
 
+// 获取最近文章列表
 app.get('/latest', function (req, res) {
     console.log('enter latest');
     list.getLatestList(function (rows) {
@@ -29,6 +25,7 @@ app.get('/latest', function (req, res) {
     });
 });
 
+// 根据标签ID获取标签对应的文章列表
 app.get('/tag', function (req, res) {
     console.log('enter tag');
     list.getListByTagId(req.query.id, function (rows) {
@@ -36,6 +33,7 @@ app.get('/tag', function (req, res) {
     });
 });
 
+// 根据博客ID获取博客内容
 app.get('/getPathById', function (req, res) {
     console.log('enter getPathById');
     blog.getPathById(req.query.id, function (rows) {
@@ -46,9 +44,22 @@ app.get('/getPathById', function (req, res) {
     });
 });
 
+// 获取标签列表
 app.get('/tags', function (req, res) {
     console.log('enter tags');
     tag.getTags(function (rows) {
+        res.send(rows);
+    });
+});
+
+// 获取归档内容
+app.get('/organize', function (req, res) {
+    console.log('enter organize');
+    organize.getOrganizedList(function (rows) {
+        // 遍历结果集，将list字符串转化为JSON对象
+        rows.forEach(function (item) {
+            item.list = JSON.parse(item.list);
+        });
         res.send(rows);
     });
 });

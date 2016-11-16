@@ -5,7 +5,7 @@ var config = {
     database: 'duer',
     port: 3306,
     user: 'root',
-    password: 'wsn999dmgsh'
+    password: 'duyq1992'
 };
 
 var mysql = require('mysql');
